@@ -37,8 +37,8 @@ FIXED_STEP_LOOP:
 FLOAT_STEP_LOOP:
   for (int step = 0; step < NUM_ITER; step++) {
     int sigma = (theta<0) ? -1:1;
-    cos_sin_type new_x = x-(sigma*(ldexp(y,-step)));
-    cos_sin_type new_y= y +(sigma*(ldexp(x,-step)));
+    cos_sin_type new_x = x-sigma*(y / (double)(1ULL << step));
+    cos_sin_type new_y= y +sigma*(x / (double)(1ULL << step));
 
     x=new_x;
     y=new_y;
