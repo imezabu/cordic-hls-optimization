@@ -18,10 +18,11 @@ void cordic(theta_type theta, cos_sin_type &s, cos_sin_type &c) {
 // -----------------------------
 // YOUR CODE GOES HERE
 // -----------------------------
-  cos_sin_type x = 0.60735;
+  
   cos_sin_type y = 0;
 #ifdef FIXED_TYPE // fixed-point design
 FIXED_STEP_LOOP:
+  cos_sin_type x = 0.607252; //adjusted for the asymptote of infinite iterations of CORDIC gain
   for (int step = 0; step < 20; step++) {
     int sigma = (theta<0) ? -1:1;
     cos_sin_type new_x = x-(sigma*(y>>step));
@@ -35,6 +36,7 @@ FIXED_STEP_LOOP:
 #else // floating point design
 
 FLOAT_STEP_LOOP:
+  cos_sin_type x = 0.607351; //adjusted for 5 iterations of CORDIC GAIN 
   for (int step = 0; step < NUM_ITER; step++) {
     int sigma = (theta<0) ? -1:1;
     cos_sin_type new_x = x-sigma*(y / (double)(1ULL << step));
