@@ -24,7 +24,6 @@ void cordic(theta_type theta, cos_sin_type &s, cos_sin_type &c) {
 FIXED_STEP_LOOP:
   cos_sin_type x = 0.607252; //adjusted for the asymptote of infinite iterations of CORDIC gain
   for (int step = 0; step < 20; step++) {
-    int sigma = (theta<0) ? -1:1;
     cos_sin_type new_x = (theta<0) ? x+(y>>step) : x-(y>>step); //no multiplication in design
     cos_sin_type new_y= (theta<0)? y -(x>>step): y +(x>>step);
 
