@@ -20,7 +20,7 @@ file delete -force "./result/${filename}"
 #------------------------------------------------------
 # You can specify a set of iteration counts to explore.
 #------------------------------------------------------
-set num_iterations { 5 10 }
+set num_iterations { 5 10 20 40 }
 
 #------------------------------------------------------
 # run batch experiments

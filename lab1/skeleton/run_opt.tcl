@@ -53,6 +53,12 @@ set_part xck26-sfvc784-2LV-c
 # Target clock period is 10ns
 create_clock -period 10
 
+#------------------------------------
+# optimizations
+# ----------------------------------
+#
+set_directive_pipeline cordic/FIXED_STEP_LOOP -II 10
+
 # Simulate the C++ design
 csim_design
 # Synthesize the design
