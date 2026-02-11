@@ -57,8 +57,8 @@ create_clock -period 10
 # optimizations
 # ----------------------------------
 #
-set_directive_pipeline cordic/FIXED_STEP_LOOP -II 10
-
+set_directive_pipeline cordic/FIXED_STEP_LOOP -II 1
+#set_directive_unroll cordic/FIXED_STEP_LOOP -factor 2
 # Simulate the C++ design
 csim_design
 # Synthesize the design
